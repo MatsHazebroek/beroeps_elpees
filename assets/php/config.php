@@ -21,6 +21,6 @@ if (!$mysqli) {
 }
 
 else {
-    echo "Verbinding met " . $db_database . " is gemaakt!<br>";
+    
 }
 ?>

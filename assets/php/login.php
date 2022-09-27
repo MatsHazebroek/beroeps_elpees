@@ -12,19 +12,18 @@
     require('config.php');
     session_start();
 
-    // Zodra de form is ingevuld wordt er gecontroleerd of het ww al bestaat
     if (isset($_POST['username'])) {
         // Haalt backslashes weg
         $username = stripslashes($_REQUEST['username']);
-        $username = mysqli_real_escape_string($con, $username);
+        $username = mysqli_real_escape_string($mysqli, $username);
         $password = stripslashes($_REQUEST['password']);
-        $password = mysqli_real_escape_string($con, $password);
+        $password = mysqli_real_escape_string($mysqli, $password);
 
-        // Kijken of de user al bestaat
+        // Kijken of de gegevens overeenkomen met de inhoud van de tables
         $query    = "SELECT * FROM `users` WHERE username='$username'
                      AND password='" . md5($password) . "'";
                      
-        $result = mysqli_query($con, $query) or die(mysql_error());
+        $result = mysqli_query($mysqli, $query) or die(mysql_error());
         $rows = mysqli_num_rows($result);
         if ($rows == 1) {
             $_SESSION['username'] = $username;
