@@ -1,13 +1,14 @@
 <?php 
-
-init_set('display_errors', 1);
+// Foutmelding zichtbaar maken
+ini_set('display_errors', 1);
 error_reporting(E_ALL);
+
 
 // database logingegevens
 $db_hostname = 'localhost';
 $db_username = 'DBgebruiker';
 $db_password = 'DBgebruiker';
-$db_database = 'VerzamelDB';
+$db_database = 'BeroepsDB';
 
 // database-verbinding
 $mysqli = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
@@ -22,6 +23,4 @@ if (!$mysqli) {
 else {
     echo "Verbinding met " . $db_database . " is gemaakt!<br>";
 }
-?>
-
 ?>
