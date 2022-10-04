@@ -1,8 +1,9 @@
 <?php 
+
 session_start();
 
 // connect to database
-$db = mysqli_connect('localhost', 'DBgebruiker', 'DBgebruiker', 'multi_login');
+$db = mysqli_connect('localhost', 'DBgebruiker', 'DBgebruiker', 'BeroepsDB');
 
 // variable declaration
 $username = "";
@@ -13,6 +14,7 @@ $errors   = array();
 if (isset($_POST['register_btn'])) {
 	register();
 }
+
 
 // REGISTER USER
 function register(){
@@ -46,13 +48,13 @@ function register(){
 
 		if (isset($_POST['user_type'])) {
 			$user_type = e($_POST['user_type']);
-			$query = "INSERT INTO users (username, email, user_type, password) 
+			$query = "INSERT INTO multi_login (username, email, user_type, password) 
 					  VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
 			header('location: home.php');
 		}else{
-			$query = "INSERT INTO users (username, email, user_type, password) 
+			$query = "INSERT INTO multi_login (username, email, user_type, password) 
 					  VALUES('$username', '$email', 'user', '$password')";
 			mysqli_query($db, $query);
 
@@ -69,7 +71,7 @@ function register(){
 // return user array from their id
 function getUserById($id){
 	global $db;
-	$query = "SELECT * FROM users WHERE id=" . $id;
+	$query = "SELECT * FROM multi_login WHERE id=" . $id;
 	$result = mysqli_query($db, $query);
 
 	$user = mysqli_fetch_assoc($result);
@@ -127,7 +129,7 @@ function login(){
 	if (count($errors) == 0) {
 		$password = md5($password);
 
-		$query = "SELECT * FROM users WHERE username='$username' AND password='$password' LIMIT 1";
+		$query = "SELECT * FROM multi_login WHERE username='$username' AND password='$password' LIMIT 1";
 		$results = mysqli_query($db, $query);
 
 		if (mysqli_num_rows($results) == 1) { // user found
@@ -137,7 +139,7 @@ function login(){
 
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
-				header('location: admin/home.php');		  
+				header('location: home.php');		  
 			}else{
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
@@ -147,5 +149,14 @@ function login(){
 		}else {
 			array_push($errors, "Wrong username/password combination");
 		}
+	}
+}
+
+function isAdmin()
+{
+	if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) {
+		return true;
+	}else{
+		return false;
 	}
 }
