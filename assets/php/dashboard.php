@@ -13,7 +13,7 @@
     <div>
     <p>Hey, <?php echo $_SESSION['username']; ?>!</p>
         <p>You are in user dashboard page.</p>
-        <p><a href="./assets/php/logout.php">Logout</a></p>
+        <p><a href="/assets/php/logout.php">Logout</a></p>
     </div>
 </body>
 </html>
