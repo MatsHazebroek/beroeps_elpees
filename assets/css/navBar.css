@@ -1,3 +1,11 @@
+@font-face {
+    font-family: product;
+    src: url(../fonts/Product\ Sans\ Regular.ttf);
+  }
+  @font-face {
+    font-family: productBold;
+    src: url(../fonts/Product\ Sans\ Regular.ttf);
+  }
 * {
     margin: 0;
     padding: 0;
@@ -11,6 +19,7 @@ body {
 }
 
 header {
+    font-family: productBold;
     position: fixed;
     top: 0;
     left: 0;
