@@ -14,6 +14,7 @@ if (isset($_POST['register_btn'])) {
 	register();
 }
 
+
 // REGISTER USER
 function register(){
 	// call these variables with the global keyword to make them available in function
@@ -39,6 +40,8 @@ function register(){
 	if ($password_1 != $password_2) {
 		array_push($errors, "The two passwords do not match");
 	}
+
+	echo "test3";
 
 	// register user if there are no errors in the form
 	if (count($errors) == 0) {
@@ -147,5 +150,14 @@ function login(){
 		}else {
 			array_push($errors, "Wrong username/password combination");
 		}
+	}
+}
+
+function isAdmin()
+{
+	if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) {
+		return true;
+	}else{
+		return false;
 	}
 }
