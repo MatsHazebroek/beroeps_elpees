@@ -19,7 +19,6 @@ if (!$mysqli) {
     echo "Error: " . mysqli_connect_error() . "<br>";
     exit;
 }
-
 else {
     
 }
