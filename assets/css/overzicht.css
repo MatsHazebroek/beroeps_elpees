@@ -1,3 +1,11 @@
+@font-face {
+  font-family: product;
+  src: url(../fonts/Product\ Sans\ Regular.ttf);
+}
+@font-face {
+  font-family: productBold;
+  src: url(../fonts/Product\ Sans\ Regular.ttf);
+}
 :root {
     --surface-color: #fff;
     --curve: 40;
@@ -8,11 +16,13 @@
   }
 
   body {
-    font-family: 'Noto Sans JP', sans-serif;
+    font-family: product;
     background-color: #fef8f8;
   }
 
   .cards {
+    position: relative;
+    top: 2rem;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
     gap: 2rem;
