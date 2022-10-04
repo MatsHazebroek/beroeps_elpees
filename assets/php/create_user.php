@@ -1,23 +1,31 @@
 <?php include('functions.php') ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<title>Registration system PHP and MySQL - Create user</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+
+	<!-- CSS -->
 	<style>
 		.header {
 			background: #003366;
 		}
+
 		button[name=register_btn] {
 			background: #003366;
 		}
 	</style>
+	<title>Document</title>
 </head>
+
 <body>
 	<div class="header">
 		<h2>Admin - create user</h2>
 	</div>
-	
+
 	<form method="post" action="create_user.php">
 
 		<?php echo display_error(); ?>
@@ -32,7 +40,7 @@
 		</div>
 		<div class="input-group">
 			<label>User type</label>
-			<select name="user_type" id="user_type" >
+			<select name="user_type" id="user_type">
 				<option value=""></option>
 				<option value="admin">Admin</option>
 				<option value="user">User</option>
@@ -51,4 +59,5 @@
 		</div>
 	</form>
 </body>
+
 </html>
