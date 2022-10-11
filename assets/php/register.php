@@ -18,8 +18,7 @@ include('functions.php');
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<!-- <link rel="stylesheet" href="style.css"> -->
-	<link rel="stylesheet" href="register.css">
+	<link rel="stylesheet" href="css/user.css">
 	<title>Document</title>
 </head>
 
@@ -54,13 +53,14 @@ include('functions.php');
 	</form> -->
 	<div class="container">
         <div id="logbox">
-            <form id="signup" method="post" action="/signup">
-                <h1>Create an account</h1>
-				<input class="input pass" name="user[name]" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" />
-				<input class="input pass" name="user[password]" type="password" placeholder="Choose a password" required="required" />
-				<input class="input pass" name="user[password2]" type="password" placeholder="Confirm password" required="required" />
-				<input class="input pass" name="user[email]" type="email" placeholder="Email address (optional)" />
-				<input class="inputButton" type="submit" value="Sign me up!" />
+            <form id="signup" method="post" action="register.php">
+                <h1>Maak een account</h1>
+				<input class="input pass" name="username" type="text" placeholder="Username" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" />
+				<input class="input pass" name="email" type="email" placeholder="Email adres" />
+				<input class="input pass" name="password_1" type="password" placeholder="Fill an password" required="required" />
+				<input class="input pass" name="password_2" type="password" placeholder="Repeat password" required="required" />
+				<input class="inputButton" type="submit" value="Sign me up!" name="register_btn" />
+				<p>Al geregistreerd <a href="login.php">Sign in</a></p>
             </form>
         </div>
     </div>
