@@ -18,12 +18,13 @@ include('functions.php');
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<link rel="stylesheet" href="register.css">
 	<title>Document</title>
 </head>
 
 <body>
-	<div class="header">
+	<!-- <div class="header">
 		<h2>Register</h2>
 	</div>
 	<form method="post" action="register.php">
@@ -50,7 +51,19 @@ include('functions.php');
 		<p>
 			Already a member? <a href="login.php">Sign in</a>
 		</p>
-	</form>
+	</form> -->
+	<div class="container">
+        <div id="logbox">
+            <form id="signup" method="post" action="/signup">
+                <h1>Create an account</h1>
+				<input class="input pass" name="user[name]" type="text" placeholder="What's your username?" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" />
+				<input class="input pass" name="user[password]" type="password" placeholder="Choose a password" required="required" />
+				<input class="input pass" name="user[password2]" type="password" placeholder="Confirm password" required="required" />
+				<input class="input pass" name="user[email]" type="email" placeholder="Email address (optional)" />
+				<input class="inputButton" type="submit" value="Sign me up!" />
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>
