@@ -20,16 +20,16 @@ function register(){
 	$password_2  =  e($_POST['password_2']);
 
 	if (empty($username)) { 
-		array_push($errors, "Username is required"); 
+		display_error($errors, "Username is required"); 
 	}
 	if (empty($email)) { 
-		array_push($errors, "Email is required"); 
+		display_error($errors, "Email is required"); 
 	}
 	if (empty($password_1)) { 
-		array_push($errors, "Password is required"); 
+		display_error($errors, "Password is required"); 
 	}
 	if ($password_1 != $password_2) {
-		array_push($errors, "The two passwords do not match");
+		display_error($errors, "The two passwords do not match");
 	}
 
 	if (count($errors) == 0) {
@@ -102,10 +102,10 @@ function login(){
 	$password = e($_POST['password']);
 
 	if (empty($username)) {
-		array_push($errors, "Username is required");
+		display_error($errors, "Username is required");
 	}
 	if (empty($password)) {
-		array_push($errors, "Password is required");
+		display_error($errors, "Password is required");
 	}
 
 	if (count($errors) == 0) {
