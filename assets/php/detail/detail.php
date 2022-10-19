@@ -5,7 +5,7 @@ error_reporting(E_ALL);
 
 $db = mysqli_connect('localhost', 'DBgebruiker', 'DBgebruiker', 'BeroepsDB');
 
-$sql = "select * from `VerzamelDB`";
+$sql = "SELECT * from `VerzamelDB`";
 $result = mysqli_query($db, $sql) or die("Error in Selecting " . mysqli_error($db));
 
 $emparray = array();
