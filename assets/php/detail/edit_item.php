@@ -19,9 +19,9 @@ if (isset($_POST['verzend'])){
     $formaat = $_POST['formaat'];
     $omschrijving = $_POST['omschrijving'];
 
-    $query = "INSERT INTO VerzamelDB";
-    $query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest)";
-    $query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}')";
+    $query = "UPDATE VerzamelDB";
+    $query .= "SET `NaamItem`='{$titel}',`Omschrijving`='{$omschrijving}',`ReleaseDatum`='{$release}',`Genre`='{$genre}',`Formaat`='{$formaat}',`Artiest`='{$artiest}'";
+    $query .= " ";
     $result = mysqli_query($mysqli, $query); 
 
 if ($result) {

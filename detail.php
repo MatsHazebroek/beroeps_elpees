@@ -1,4 +1,22 @@
+<?php
+ini_set('display_errors', '1');
+ini_set('display_startup_errors', '1');
+error_reporting(E_ALL);
 
+$db = mysqli_connect('localhost', 'DBgebruiker', 'DBgebruiker', 'BeroepsDB');
+
+$sql = "SELECT * FROM `VerzamelDB`";
+$result = mysqli_query($db, $sql) or die("Error in Selecting " . mysqli_error($db));
+$row2 = mysqli_fetch_assoc($result);
+
+
+$emparray = array();
+while($row =mysqli_fetch_assoc($result))
+{
+    echo $row[`NaamItem`];
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +25,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/detail.css">
-    <link rel="stylesheet" href="assets/css/navBar.css">
+    <!-- <link rel="stylesheet" href="assets/css/navBar.css"> -->
     <script src="assets/js/detail.js" defer></script>
     <title>Document</title>
 </head>
