@@ -3,44 +3,39 @@
 ini_set('display_errors', 1);
 error_reporting(E_ALL);
 
+include('functions.php');
 
-$db_hostname = 'localhost';
-$db_username = 'DBgebruiker';
-$db_password = 'DBgebruiker';
-$db_database = 'BeroepsDB';
+// $db_hostname = 'localhost';
+// $db_username = 'DBgebruiker';
+// $db_password = 'DBgebruiker';
+// $db_database = 'BeroepsDB';
 
-$mysqli = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
+// $mysqli = mysqli_connect($db_hostname, $db_username, $db_password, $db_database);
 
-if (isset($_POST['verzend'])){
-    $titel = $_POST['titel'];
-    $artiest = $_POST['artiest'];
-    $genre = $_POST['genre'];
-    $release = $_POST['release'];
-    $formaat = $_POST['formaat'];
-    $omschrijving = $_POST['omschrijving'];
+// if (isset($_POST['verzend'])){
+//     $titel = $_POST['titel'];
+//     $artiest = $_POST['artiest'];
+//     $genre = $_POST['genre'];
+//     $release = $_POST['release'];
+//     $formaat = $_POST['formaat'];
+//     $omschrijving = $_POST['omschrijving'];
 
-    $query = "INSERT INTO VerzamelDB";
-    $query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest)";
-    $query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}')";
-    $result = mysqli_query($mysqli, $query); 
+//     $query = "INSERT INTO VerzamelDB";
+//     $query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest)";
+//     $query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}')";
+//     $result = mysqli_query($mysqli, $query); 
 
-if ($result) {
-    echo "het item is toegevoegd<br>";
+// if ($result) {
+//     echo "het item is toegevoegd<br>";
 
-} else {
-    echo "FOUT bij toevoegen<br>";
-    echo $query . "<br>";
-    echo mysqli_error($mysqli);
-}
-?>
-<script type="text/javascript">
-window.location = "../overzicht.html";
-</script>      
+// } else {
+//     echo "FOUT bij toevoegen<br>";
+//     echo $query . "<br>";
+//     echo mysqli_error($mysqli);
+// }
+?>   
 <?php
-}
-
-
-
+// }
 ?>
 
 <!DOCTYPE html>
