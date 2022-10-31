@@ -151,27 +151,26 @@ function createItem() {
 
 	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving;
 
-	// if (isset($_POST['verzend'])){
-		$titel = e($_POST['titel']);
-		$artiest = e($_POST['artiest']);
-		$genre = e($_POST['genre']);
-		$release = e($_POST['release']);
-		$formaat = e($_POST['formaat']);
-		$omschrijving = e($_POST['omschrijving']);
+	$titel = e($_POST['titel']);
+	$artiest = e($_POST['artiest']);
+	$genre = e($_POST['genre']);
+	$release = e($_POST['release']);
+	$formaat = e($_POST['formaat']);
+	$omschrijving = e($_POST['omschrijving']);
+
+	$query = "INSERT INTO VerzamelDB";
+	$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest)";
+	$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}')";
+	$result = mysqli_query($db, $query); 
+
+	if ($result) {
+		echo "het item is toegevoegd<br>";
 	
-		$query = "INSERT INTO VerzamelDB";
-		$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest)";
-		$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}')";
-		$result = mysqli_query($db, $query); 
-	
-		if ($result) {
-			echo "het item is toegevoegd<br>";
-		
-		} else {
-			echo "FOUT bij toevoegen<br>";
-			echo $query . "<br>";
-			echo mysqli_error($db);
-		}   
-	// }
-	
+	} else {
+		echo "FOUT bij toevoegen<br>";
+		echo $query . "<br>";
+		echo mysqli_error($db);
+	}   
 }
+
+?>
