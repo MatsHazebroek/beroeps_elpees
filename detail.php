@@ -3,17 +3,21 @@ ini_set('display_errors', '1');
 ini_set('display_startup_errors', '1');
 error_reporting(E_ALL);
 
-$db = mysqli_connect('localhost', 'DBgebruiker', 'DBgebruiker', 'BeroepsDB');
+include('./assets/php/functions.php');
 
 $sql = "SELECT * FROM `VerzamelDB`";
 $result = mysqli_query($db, $sql) or die("Error in Selecting " . mysqli_error($db));
 $row2 = mysqli_fetch_assoc($result);
 
+// $emparray = array();
 
-$emparray = array();
-while($row =mysqli_fetch_assoc($result))
-{
-    echo '<img src="data:image/jpeg;base64,'.base64_encode($row['ItemImage']).'"/>';
+if ($result) {
+    if (mysqli_num_rows($result) > 0) {
+        while($row = mysqli_fetch_assoc($result)) {
+            echo $row['NaamItem'];
+        }
+    }
+    
 }
 
 ?>
@@ -33,7 +37,7 @@ while($row =mysqli_fetch_assoc($result))
 <body>
     <header>
         <a href="#" class="logo"><img src="/assets/img/lp_logo.png" alt=""></a>
-        
+
         <nav class="navbar">
             <ul>
                 <li><a href="#">Overzicht</a></li>
