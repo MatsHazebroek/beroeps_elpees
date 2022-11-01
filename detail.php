@@ -13,7 +13,7 @@ $row2 = mysqli_fetch_assoc($result);
 $emparray = array();
 while($row =mysqli_fetch_assoc($result))
 {
-    echo $row[`NaamItem`];
+    echo '<img src="data:image/jpeg;base64,'.base64_encode($row['ItemImage']).'"/>';
 }
 
 ?>
@@ -33,7 +33,7 @@ while($row =mysqli_fetch_assoc($result))
 <body>
     <header>
         <a href="#" class="logo"><img src="/assets/img/lp_logo.png" alt=""></a>
-
+        
         <nav class="navbar">
             <ul>
                 <li><a href="#">Overzicht</a></li>

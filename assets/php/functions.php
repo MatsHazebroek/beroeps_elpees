@@ -152,7 +152,7 @@ function isAdmin()
 
 function createItem() {
 
-	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving;
+	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving, $image;
 
 	// if (isset($_POST['verzend'])){
 		$titel = e($_POST['titel']);
@@ -161,9 +161,10 @@ function createItem() {
 		$release = e($_POST['release']);
 		$formaat = e($_POST['formaat']);
 		$omschrijving = e($_POST['omschrijving']);
+
 	
 		$query = "INSERT INTO VerzamelDB";
-		$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest, user)";
+		$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest, user, ItemImage)";
 		$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}', '".$_SESSION["user"]["id"]."')";
 		$result = mysqli_query($db, $query); 
 	

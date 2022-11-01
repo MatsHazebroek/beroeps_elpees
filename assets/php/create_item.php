@@ -30,6 +30,8 @@ if(!isLoggedIn()) {
     <input type="text" name="genre" required><br>
     <label>Release datum</label><br>
     <input type="date" name="release" required><br>
+    <label>image</label><br>
+    <input type="file" name="image" required><br>
     <label>Formaat</label><br>
     <select name="formaat">
 		<option>18 cm(7 inch)</option>
