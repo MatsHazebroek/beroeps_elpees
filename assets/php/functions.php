@@ -17,6 +17,10 @@ if (isset($_POST['verzend'])) {
 	createItem();
 }
 
+if (isset($_POST['edit_item'])) {
+    editItem();
+}
+
 function register(){
 	global $db, $errors, $username, $email;
 
@@ -152,7 +156,7 @@ function isAdmin()
 
 function createItem() {
 
-	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving, $image;
+	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving;
 
 	// if (isset($_POST['verzend'])){
 		$titel = e($_POST['titel']);
@@ -161,10 +165,9 @@ function createItem() {
 		$release = e($_POST['release']);
 		$formaat = e($_POST['formaat']);
 		$omschrijving = e($_POST['omschrijving']);
-
 	
 		$query = "INSERT INTO VerzamelDB";
-		$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest, user, ItemImage)";
+		$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest, user)";
 		$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}', '".$_SESSION["user"]["id"]."')";
 		$result = mysqli_query($db, $query); 
 	
@@ -178,4 +181,37 @@ function createItem() {
 		}   
 	// }
 	
+}
+
+// Dit werkt niet, maar is alvast er neergezet
+function editItem() {
+
+    global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving;
+
+
+    $titel = e($_POST['titel']);
+    $artiest = e($_POST['artiest']);
+    $genre = e($_POST['genre']);
+    $release = e($_POST['release']);
+    $formaat = e($_POST['formaat']);
+    $omschrijving = e($_POST['omschrijving']);
+
+    $id = e($_POST['id']);
+
+    $query = "UPDATE `VerzamelDB` SET `NaamItem` = '${titel}', `Artiest` = '${artiest}', `Genre` = '{$genre}', `ReleaseDatum` = '{$release}', 
+    `Formaat` = '{$formaat}', `Omschrijving` = '{$omschrijving}' WHERE `id` = '{$id}'";
+    
+
+    $result = mysqli_query($db, $query);
+
+    if ($result) {
+        echo "Item is toegevoegd";
+        // header('location: page waar het op veranderd');
+    } else {
+        echo $query;
+        mysqli_error($db);
+    }
+
+
+
 }
