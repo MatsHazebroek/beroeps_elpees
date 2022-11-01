@@ -1,5 +1,7 @@
 <?php 
 session_start();
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 
 $db = mysqli_connect('localhost', 'DBgebruiker', 'DBgebruiker', 'BeroepsDB');
 
@@ -88,9 +90,10 @@ function display_error() {
 
 function isLoggedIn()
 {
+    // session_start();
 	if (isset($_SESSION['user'])) {
 		return true;
-	}else{
+	} else{
 		return false;
 	}
 }
@@ -151,26 +154,27 @@ function createItem() {
 
 	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving;
 
-	$titel = e($_POST['titel']);
-	$artiest = e($_POST['artiest']);
-	$genre = e($_POST['genre']);
-	$release = e($_POST['release']);
-	$formaat = e($_POST['formaat']);
-	$omschrijving = e($_POST['omschrijving']);
-
-	$query = "INSERT INTO VerzamelDB";
-	$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest)";
-	$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}')";
-	$result = mysqli_query($db, $query); 
-
-	if ($result) {
-		echo "het item is toegevoegd<br>";
+	// if (isset($_POST['verzend'])){
+		$titel = e($_POST['titel']);
+		$artiest = e($_POST['artiest']);
+		$genre = e($_POST['genre']);
+		$release = e($_POST['release']);
+		$formaat = e($_POST['formaat']);
+		$omschrijving = e($_POST['omschrijving']);
 	
-	} else {
-		echo "FOUT bij toevoegen<br>";
-		echo $query . "<br>";
-		echo mysqli_error($db);
-	}   
+		$query = "INSERT INTO VerzamelDB";
+		$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest, user)";
+		$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}', '".$_SESSION["user"]["id"]."')";
+		$result = mysqli_query($db, $query); 
+	
+		if ($result) {
+			echo "het item is toegevoegd<br>";
+		
+		} else {
+			echo "FOUT bij toevoegen<br>";
+			echo $query . "<br>";
+			echo mysqli_error($db);
+		}   
+	// }
+	
 }
-
-?>

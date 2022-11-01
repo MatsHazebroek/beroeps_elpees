@@ -1,6 +1,14 @@
 
 <?php 
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 include('functions.php');
+
+if(!isLoggedIn()) {
+    header('location:login.php');
+    exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -14,23 +22,23 @@ include('functions.php');
 <body>
 <div>
     <form method="POST" action="create_item.php">
-        <label>Titel</label><br>
-        <input type="text" name="titel" required><br>
-        <label>Artiest</label><br>
-        <input type="text" name="artiest" required><br>
-        <label>Genre</label><br>
-        <input type="text" name="genre" required><br>
-        <label>Release datum</label><br>
-        <input type="date" name="release" required><br>
-        <label>Formaat</label><br>
-        <select name="formaat">
-            <option>18 cm(7 inch)</option>
-            <option> 25 cm(10 inch)</option>
-            <option> 30 cm(12 inch)</option>
-        </select><br><br>
-        <label>Beschrijving</label><br>
-        <textarea name="omschrijving" cols="30" rows="10"></textarea>
-        <button type="submit" name="verzend">create</button>
+    <label>Titel</label><br>
+    <input type="text" name="titel" required><br>
+    <label>Artiest</label><br>
+    <input type="text" name="artiest" required><br>
+    <label>Genre</label><br>
+    <input type="text" name="genre" required><br>
+    <label>Release datum</label><br>
+    <input type="date" name="release" required><br>
+    <label>Formaat</label><br>
+    <select name="formaat">
+		<option>18 cm(7 inch)</option>
+		<option> 25 cm(10 inch)</option>
+		<option> 30 cm(12 inch)</option>
+	</select><br><br>
+    <label>Beschrijving</label><br>
+    <textarea name="omschrijving" cols="30" rows="10"></textarea>
+    <button type="submit" name="verzend">create</button>
     </form>
 </div>
 </body>
