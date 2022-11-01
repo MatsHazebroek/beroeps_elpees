@@ -17,6 +17,10 @@ if (isset($_POST['verzend'])) {
 	createItem();
 }
 
+if (isset($_POST['edit_item'])) {
+    editItem();
+}
+
 function register(){
 	global $db, $errors, $username, $email;
 
@@ -177,4 +181,37 @@ function createItem() {
 		}   
 	// }
 	
+}
+
+// Dit werkt niet, maar is alvast er neergezet
+function editItem() {
+
+    global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving;
+
+
+    $titel = e($_POST['titel']);
+    $artiest = e($_POST['artiest']);
+    $genre = e($_POST['genre']);
+    $release = e($_POST['release']);
+    $formaat = e($_POST['formaat']);
+    $omschrijving = e($_POST['omschrijving']);
+
+    $id = e($_POST['id']);
+
+    $query = "UPDATE `VerzamelDB` SET `NaamItem` = '${titel}', `Artiest` = '${artiest}', `Genre` = '{$genre}', `ReleaseDatum` = '{$release}', 
+    `Formaat` = '{$formaat}', `Omschrijving` = '{$omschrijving}' WHERE `id` = '{$id}'";
+    
+
+    $result = mysqli_query($db, $query);
+
+    if ($result) {
+        echo "Item is toegevoegd";
+        // header('location: page waar het op veranderd');
+    } else {
+        echo $query;
+        mysqli_error($db);
+    }
+
+
+
 }
