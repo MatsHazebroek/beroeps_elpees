@@ -1,24 +1,29 @@
 <?php 
 session_start();
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
+// ini_set('display_errors', 1);
+// error_reporting(E_ALL);
 
 $db = mysqli_connect('localhost', 'DBgebruiker', 'DBgebruiker', 'BeroepsDB');
 
 $username = "";
 $email    = "";
+$logged_in_user_id = mysqli_insert_id($db);
 $errors   = array(); 
 
 if (isset($_POST['register_btn'])) {
 	register();
 }
 
-if (isset($_POST['verzend'])) {
+if (isset($_POST['create_item'])) {
 	createItem();
 }
 
 if (isset($_POST['edit_item'])) {
     editItem();
+}
+
+if (isset($_POST['delete'])) {
+    deleteItem();
 }
 
 function register(){
@@ -183,11 +188,9 @@ function createItem() {
 	
 }
 
-// Dit werkt niet, maar is alvast er neergezet
 function editItem() {
 
-    global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving;
-
+    global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving, $id;
 
     $titel = e($_POST['titel']);
     $artiest = e($_POST['artiest']);
@@ -195,23 +198,36 @@ function editItem() {
     $release = e($_POST['release']);
     $formaat = e($_POST['formaat']);
     $omschrijving = e($_POST['omschrijving']);
-
     $id = e($_POST['id']);
 
     $query = "UPDATE `VerzamelDB` SET `NaamItem` = '${titel}', `Artiest` = '${artiest}', `Genre` = '{$genre}', `ReleaseDatum` = '{$release}', 
-    `Formaat` = '{$formaat}', `Omschrijving` = '{$omschrijving}' WHERE `id` = '{$id}'";
+    `Formaat` = '{$formaat}', `Omschrijving` = '{$omschrijving}' WHERE `Id` = '{$id}'";
     
 
     $result = mysqli_query($db, $query);
 
     if ($result) {
-        echo "Item is toegevoegd";
-        // header('location: page waar het op veranderd');
+        // echo "Item is veranderd";
+        header('location:../../../detail.php?id='.$id);
     } else {
         echo $query;
         mysqli_error($db);
     }
+}
 
+function deleteItem() {
+    global $db, $id;
 
+    $id = e($_POST['id']);
 
+    $query = "DELETE FROM `VerzamelDB` WHERE Id = " . $id;
+
+    $result = mysqli_query($db, $query);
+
+    if ($result) {
+        header('location:../../overzicht.php');
+    } else {
+        echo $query;
+        mysqli_error($db);
+    }
 }
