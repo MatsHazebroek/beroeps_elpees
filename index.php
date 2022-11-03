@@ -18,11 +18,10 @@
                 </head>
                 <body>
                     <header>
-                        <a href="#" class="logo"><img src="/assets/img/lp_logo.png" alt=""></a>
+                        <a href="#" class="logo"><img src="./assets/img/lp_logo.png" alt=""></a>
 
                         <nav class="navbar">
                         <ul>
-                            <!-- <li><a href="#">Overzicht</a></li> -->
                             <li><a href="assets/php/register.php">Sign up</a></li>
                         </ul>
                         </nav>

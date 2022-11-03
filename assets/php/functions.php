@@ -10,6 +10,10 @@ $email    = "";
 $logged_in_user_id = mysqli_insert_id($db);
 $errors   = array(); 
 
+if (isset($_POST['login_btn'])) {
+	login();
+}
+
 if (isset($_POST['register_btn'])) {
 	register();
 }
@@ -56,7 +60,7 @@ function register(){
 					  VALUES('$username', '$email', '$user_type', '$password')";
 			mysqli_query($db, $query);
 			$_SESSION['success']  = "New user successfully created!!";
-			header('location: home.php');
+			header('location:home.php');
 		}else{
 			$query = "INSERT INTO multi_login (username, email, user_type, password) 
 					  VALUES('$username', '$email', 'user', '$password')";
@@ -66,14 +70,14 @@ function register(){
 
 			$_SESSION['user'] = getUserById($logged_in_user_id);
 			$_SESSION['success']  = "You are now logged in";
-			header('location: index.php');				
+			header('location:../../index.php');							
 		}
 	}
 }
 
 function getUserById($id){
 	global $db;
-	$query = "SELECT * FROM multi_login WHERE id=" . $id;
+	$query = "SELECT * FROM `multi_login` WHERE `id` = " . $id;
 	$result = mysqli_query($db, $query);
 
 	$user = mysqli_fetch_assoc($result);
@@ -105,10 +109,6 @@ function isLoggedIn()
 	} else{
 		return false;
 	}
-}
-
-if (isset($_POST['login_btn'])) {
-	login();
 }
 
 function login(){
@@ -163,28 +163,26 @@ function createItem() {
 
 	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving;
 
-	// if (isset($_POST['verzend'])){
-		$titel = e($_POST['titel']);
-		$artiest = e($_POST['artiest']);
-		$genre = e($_POST['genre']);
-		$release = e($_POST['release']);
-		$formaat = e($_POST['formaat']);
-		$omschrijving = e($_POST['omschrijving']);
+	$titel = e($_POST['titel']);
+	$artiest = e($_POST['artiest']);
+	$genre = e($_POST['genre']);
+	$release = e($_POST['release']);
+	$formaat = e($_POST['formaat']);
+	$omschrijving = e($_POST['omschrijving']);
+
+	$query = "INSERT INTO VerzamelDB";
+	$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest, user)";
+	$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}', '".$_SESSION["user"]["id"]."')";
+	$result = mysqli_query($db, $query); 
+
+	if ($result) {
+		echo "het item is toegevoegd<br>";
 	
-		$query = "INSERT INTO VerzamelDB";
-		$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest, user)";
-		$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}', '".$_SESSION["user"]["id"]."')";
-		$result = mysqli_query($db, $query); 
-	
-		if ($result) {
-			echo "het item is toegevoegd<br>";
-		
-		} else {
-			echo "FOUT bij toevoegen<br>";
-			echo $query . "<br>";
-			echo mysqli_error($db);
-		}   
-	// }
+	} else {
+		echo "FOUT bij toevoegen<br>";
+		echo $query . "<br>";
+		echo mysqli_error($db);
+	}   
 	
 }
 
@@ -207,7 +205,6 @@ function editItem() {
     $result = mysqli_query($db, $query);
 
     if ($result) {
-        // echo "Item is veranderd";
         header('location:../../../detail.php?id='.$id);
     } else {
         echo $query;
