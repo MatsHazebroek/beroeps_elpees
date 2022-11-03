@@ -40,16 +40,20 @@
             while($item = mysqli_fetch_assoc($result)) {
                 ?>
                 <a href="detail.php?id=<?php echo $item['Id']?>" class="card">
-                    <img src="https://87957.stu.sd-lab.nl/stock.jpeg" class="card__image" alt="" />
-                    <div class="card__overlay">
-                    <div class="card__header">
-                        <svg class="card__arc" xmlns="http://www.w3.org/2000/svg"><path /></svg>                     
-                        <div class="card__header-text">
-                            <h3 class="card__title"><?php echo $item['NaamItem'] ?></h3>            
-                        <span class="card__status">1 hour ago</span>
+                    <img src="https://87957.stu.sd-lab.nl/stock.jpeg" class="cardimage" alt="" />
+                    <div class="cardoverlay">
+                    <div class="cardheader">
+                        <svg class="cardarc" xmlns="http://www.w3.org/2000/svg%22%3E<path /></svg>
+                        <div class="cardheader-text">
+                            <h1 class="cardtitle"><?php echo $item['NaamItem']?></h1>
+                            <span class="cardstatus"><?php echo $item['Artiest']?><br></span>
+                            <span class="cardstatus"><?php echo $item['ReleaseDatum']?><br></span>
+                            <span class="cardstatus"><?php echo $item['Genre']?><br></span>
+                            <span class="cardstatus"><?php echo $item['Formaat']?></span>
+                            <span class="cardstatus"><?php echo $item['Artiest']?></span>
                         </div>
                     </div>
-                    <p class="card__description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, blanditiis?</p>
+                    <p class="carddescription">Omschrijving:<br><?php echo $item['Omschrijving']?></p>
                     </div>
                 </a>
             <?php 
