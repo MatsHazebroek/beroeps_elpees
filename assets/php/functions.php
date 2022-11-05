@@ -170,19 +170,36 @@ function createItem() {
 	$formaat = e($_POST['formaat']);
 	$omschrijving = e($_POST['omschrijving']);
 
+	$output_dir = "upload/";
+	$RandomNum   = time();
+	$ImageName      = str_replace(' ','-',strtolower($_FILES['image']['name'][0]));
+	$ImageType      = $_FILES['image']['type'][0];
+
+	if (!file_exists($output_dir)) {
+		@mkdir($output_dir, 0777);
+	}
+
+	$ImageExt = substr($ImageName, strrpos($ImageName, '.'));
+	$ImageExt       = str_replace('.','',$ImageExt);
+	$NewImageName = $RandomNum.'.'.$ImageExt;
+    $ret[$NewImageName]= $output_dir.$NewImageName;
+
+	move_uploaded_file($_FILES["image"]["tmp_name"], $output_dir."/".$NewImageName);
+
 	$query = "INSERT INTO VerzamelDB";
-	$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest, user)";
-	$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}', '".$_SESSION["user"]["id"]."')";
+	$query .= " (NaamItem, Omschrijving, ReleaseDatum, Genre, Formaat, Artiest, user, ItemImage)";
+	$query .= " VALUES ('{$titel}', '{$omschrijving}', '{$release}', '{$genre}', '{$formaat}', '{$artiest}', '".$_SESSION["user"]["id"]."', '{$NewImageName}')";
 	$result = mysqli_query($db, $query); 
 
 	if ($result) {
 		echo "het item is toegevoegd<br>";
-	
 	} else {
 		echo "FOUT bij toevoegen<br>";
 		echo $query . "<br>";
 		echo mysqli_error($db);
-	}   
+	}
+	
+	
 	
 }
 

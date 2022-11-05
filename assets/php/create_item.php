@@ -21,7 +21,7 @@ if(!isLoggedIn()) {
 </head>
 <body>
 <div>
-    <form method="POST" action="create_item.php">
+    <form method="POST" action="create_item.php" enctype="multipart/form-data">
         <label>Titel</label><br>
         <input type="text" name="titel" required><br>
         <label>Artiest</label><br>
@@ -36,6 +36,8 @@ if(!isLoggedIn()) {
             <option> 25 cm(10 inch)</option>
             <option> 30 cm(12 inch)</option>
         </select><br><br>
+        <label>Cover foto</label><br>
+        <input type="file" name="image" required><br>
         <label>Beschrijving</label><br>
         <textarea name="omschrijving" cols="30" rows="10"></textarea>
         <button type="submit" name="create_item">create</button>
