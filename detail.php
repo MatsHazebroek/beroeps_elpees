@@ -45,7 +45,7 @@ if (mysqli_num_rows($result)) {
 
                     <div class="mySlides fade">
                         <div class="numbertext">1 / 3</div>
-                        <img src="https://via.placeholder.com/150" style="width:100%">
+                        <img src="<?php echo $item['ItemImage']?>" style="width:100%">
                         <div class="text">Caption Text</div>
                     </div>
 
