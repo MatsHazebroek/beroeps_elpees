@@ -52,7 +52,6 @@
                                         <span class="card__status"><?php echo $item['ReleaseDatum']?><br></span>
                                         <span class="card__status"><?php echo $item['Genre']?><br></span>
                                         <span class="card__status"><?php echo $item['Formaat']?></span>
-                                        <span class="card__status"><?php echo $item['Artiest']?></span>
                                     </div>
                                 </div>
                                 <p class="card__description">Omschrijving:<br><?php echo $item['Omschrijving']?></p>
