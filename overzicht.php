@@ -42,7 +42,7 @@
                     while($item = mysqli_fetch_assoc($result)) {
                         ?>
                         <a href="detail.php?id=<?php echo $item['Id']?>" class="card">
-                            <img src="https://87957.stu.sd-lab.nl/stock.jpeg" class="card__image" alt="" />
+                            <img src="assets/php/upload/<?php echo $item['ItemImage']?>" class="card__image" alt="" />
                             <div class="card__overlay">
                                 <div class="card__header">
                                     <svg class="card__arc" xmlns="http://www.w3.org/2000/svg%22%3E"><path/></svg>
