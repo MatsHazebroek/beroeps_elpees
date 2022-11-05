@@ -1,4 +1,13 @@
-<?php include('functions.php') ?>
+<?php 
+
+include('./functions.php');
+
+// if (!isAdmin()) {
+//     header('location:./login.php');
+// }
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,58 +15,40 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="style.css">
-
-	<!-- CSS -->
-	<style>
-		.header {
-			background: #003366;
-		}
-
-		button[name=register_btn] {
-			background: #003366;
-		}
-	</style>
-	<title>Document</title>
+	<!-- <link rel="stylesheet" href="style.css"> -->
+	<link rel="stylesheet" href="../../assets/css/user.css">
+	<title>Maak user</title>
 </head>
 
 <body>
-	<div class="header">
-		<h2>Admin - create user</h2>
-	</div>
 
-	<form method="post" action="create_user.php">
+    <div class="container">
+        <div id="logbox">
+            <form method="post" action="create_user.php">
 
-		<?php echo display_error(); ?>
+                <?php echo display_error(); ?>
 
-		<div class="input-group">
-			<label>Username</label>
-			<input type="text" name="username" value="<?php echo $username; ?>">
-		</div>
-		<div class="input-group">
-			<label>Email</label>
-			<input type="email" name="email" value="<?php echo $email; ?>">
-		</div>
-		<div class="input-group">
-			<label>User type</label>
-			<select name="user_type" id="user_type">
-				<option value=""></option>
-				<option value="admin">Admin</option>
-				<option value="user">User</option>
-			</select>
-		</div>
-		<div class="input-group">
-			<label>Password</label>
-			<input type="password" name="password_1">
-		</div>
-		<div class="input-group">
-			<label>Confirm password</label>
-			<input type="password" name="password_2">
-		</div>
-		<div class="input-group">
-			<button type="submit" class="btn" name="register_btn"> + Create user</button>
-		</div>
-	</form>
+                <h1>Create user</h1>
+
+                <input class="input pass" type="text" name="username" placeholder="Username">
+
+                <input class="input pass" type="email" name="email" placeholder="E-mail">
+
+                <label>User type</label> 
+                <select name="user_type" id="user_type">
+                    <option value=""></option>
+                    <option value="admin">Admin</option>
+                    <option value="user">User</option>
+                </select>
+
+                <input class="input pass" type="password" name="password_1" placeholder="Password">
+                
+                <input class="input pass" type="password" name="password_2" placeholder="Repeat Password">
+                
+                <input type="submit" class="inputButton" name="register_btn">
+            </form>
+        </div>
+    </div>
 </body>
 
 </html>

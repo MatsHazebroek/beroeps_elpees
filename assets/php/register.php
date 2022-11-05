@@ -1,15 +1,16 @@
 <?php
-include('functions.php');
+include('./functions.php');
+
 // if (!isLoggedIn()) {
 // 	$_SESSION['msg'] = "You must log in first";
-// 	header('location: login.php');
+// 	header('location:login.php');
 // }
 
-// if (isset($_GET['logout'])) {
-// 	session_destroy();
-// 	unset($_SESSION['user']);
-// 	header("location: login.php");
-// }
+if (isset($_GET['logout'])) {
+	session_destroy();
+	unset($_SESSION['user']);
+	header("location:login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,8 +28,8 @@ include('functions.php');
         <div id="logbox">
             <form id="signup" method="post" action="register.php">
                 <h1>Maak een account</h1>
-				<input class="input pass" name="username" type="text" placeholder="Username" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required" />
-				<input class="input pass" name="email" type="email" placeholder="Email adres" />
+				<input class="input pass" name="username" type="text" placeholder="Username" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required"/>
+				<input class="input pass" name="email" type="email" placeholder="Email adres" pattern="[A-Za-z0-0._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}" required />
 				<input class="input pass" name="password_1" type="password" placeholder="Fill an password" required="required" />
 				<input class="input pass" name="password_2" type="password" placeholder="Repeat password" required="required" />
 				<input class="inputButton" type="submit" value="Sign me up!" name="register_btn" />

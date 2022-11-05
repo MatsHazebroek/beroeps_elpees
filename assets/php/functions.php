@@ -30,6 +30,51 @@ if (isset($_POST['delete'])) {
     deleteItem();
 }
 
+function getUserById($id){
+	global $db;
+	$query = "SELECT * FROM `multi_login` WHERE `id` = " . $id;
+	$result = mysqli_query($db, $query);
+
+	$user = mysqli_fetch_assoc($result);
+	return $user;
+}
+
+function e($val){
+	global $db;
+	return mysqli_real_escape_string($db, trim($val));
+}
+
+function display_error() {
+	global $errors;
+
+	if (count($errors) > 0){
+		echo '<div class="error">';
+			foreach ($errors as $error){
+				echo $error .'<br>';
+			}
+		echo '</div>';
+	}
+}	
+
+function isLoggedIn()
+{
+    // session_start();
+	if (isset($_SESSION['user'])) {
+		return true;
+	} else{
+		return false;
+	}
+}
+
+function isAdmin()
+{
+	if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) {
+		return true;
+	} else{
+		return false;
+	}
+}
+
 function register(){
 	global $db, $errors, $username, $email;
 
@@ -70,52 +115,17 @@ function register(){
 
 			$_SESSION['user'] = getUserById($logged_in_user_id);
 			$_SESSION['success']  = "You are now logged in";
-			header('location:../../index.php');							
+            header('location:../../index.php');				
 		}
 	}
 }
 
-function getUserById($id){
-	global $db;
-	$query = "SELECT * FROM `multi_login` WHERE `id` = " . $id;
-	$result = mysqli_query($db, $query);
-
-	$user = mysqli_fetch_assoc($result);
-	return $user;
-}
-
-function e($val){
-	global $db;
-	return mysqli_real_escape_string($db, trim($val));
-}
-
-function display_error() {
-	global $errors;
-
-	if (count($errors) > 0){
-		echo '<div class="error">';
-			foreach ($errors as $error){
-				echo $error .'<br>';
-			}
-		echo '</div>';
-	}
-}	
-
-function isLoggedIn()
-{
-    // session_start();
-	if (isset($_SESSION['user'])) {
-		return true;
-	} else{
-		return false;
-	}
-}
-
 function login(){
-	global $db, $username, $errors;
+	global $db, $username, $errors, $user;
 
 	$username = e($_POST['username']);
 	$password = e($_POST['password']);
+    $user = e($_POST['user']);
 
 	if (empty($username)) {
 		display_error($errors, 'Username is required');
@@ -136,28 +146,20 @@ function login(){
 
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
-				header('location: home.php');		  
+				header('location:../../index.php');		  
 			}else{
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 
-				header('location:../../index.php');
+				// header('location:../../index.php');
+				header('location:../../index.php');		  
+
 			}
 		}else {
 			array_push($errors, "Wrong username/password combination");
 		}
 	}
 }
-
-function isAdmin()
-{
-	if (isset($_SESSION['user']) && $_SESSION['user']['user_type'] == 'admin' ) {
-		return true;
-	} else{
-		return false;
-	}
-}
-
 
 function createItem() {
 
@@ -198,10 +200,8 @@ function createItem() {
 		echo $query . "<br>";
 		echo mysqli_error($db);
 	}
-	
-	
-	
 }
+
 
 function editItem() {
 
