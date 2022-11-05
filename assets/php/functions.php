@@ -163,7 +163,7 @@ function login(){
 
 function createItem() {
 
-	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving;
+	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving, $ImageType, $ret;
 
 	$titel = e($_POST['titel']);
 	$artiest = e($_POST['artiest']);
