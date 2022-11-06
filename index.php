@@ -14,6 +14,7 @@
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" href="assets/css/navBar.css">
+                    <link rel="stylesheet" href="./assets/css/style.css">
                     <title>Werkt niet</title>
                 </head>
                 <body>
@@ -25,8 +26,19 @@
                             <li><a href="assets/php/register.php">Sign up</a></li>
                         </ul>
                         </nav>
-
                     </header>
+                    <div class="parent">
+                        <div class="div1"> 
+                            <h1>Hallo verzamelaar!</h1>
+                            <p>Wij hebben deze collectiesite speciaal gemaakt voor LP-verzamelaars.<br>
+                            Als het jouw handig lijkt om jouw collectie te visualiseren/documenteren dan kunt u terecht op onze site.<br>
+                            Wij hebben het makkelijk gemaakt om alle platen die zich in u collectie bevinden makkelijk toe te voegen aan je digitalen collectie.
+                        </p>
+                        </div>
+                        <div class="div2"> 
+                            
+                        </div>
+                    </div>
                 </body>
                 </html>
         <?php 
@@ -43,7 +55,6 @@
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" href="assets/css/navBar.css">
-
                     <title>Werkt wel admin</title>
                 </head>
                 <body>
@@ -90,6 +101,7 @@
                         </nav>
 
                     </header>
+                    
                 </body>
                 </html>
 
@@ -98,7 +110,6 @@
         }
         ?>
         
-
         <?php
         
     } 

@@ -1,0 +1,33 @@
+@font-face {
+  font-family: product;
+  src: url(../fonts/Product.ttf);
+}
+
+@font-face {
+  font-family: productBold;
+  src: url(../fonts/ProductBold.ttf);
+}
+
+html, body{
+    max-width: 100px;
+}
+
+.parent {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 50px;
+  grid-row-gap: 50px;
+
+}
+
+.div1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+
+.div2 {
+  grid-area: 1 / 2 / 2 / 3;
+  width: 1000px;
+}

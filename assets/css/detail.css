@@ -1,7 +1,16 @@
+@font-face {
+    font-family: product;
+    src: url(../fonts/Product.ttf);
+}
+
+@font-face {
+    font-family: productBold;
+    src: url(../fonts/ProductBold.ttf);
+}
+
 body{
     padding-left: 5%;
     padding-right: 5%;
-    font-family: 'Noto Sans JP', sans-serif;
 }
 
 .main{
@@ -67,4 +76,8 @@ img {
 
 #info{
   font-size: 20px;
+}
+
+#edit{
+  background-color: #00ABB3;
 }

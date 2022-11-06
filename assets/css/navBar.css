@@ -1,11 +1,12 @@
 @font-face {
     font-family: product;
-    src: url(../fonts/Product\ Sans\ Regular.ttf);
-  }
-  @font-face {
+    src: url(../fonts/Product.ttf);
+}
+
+@font-face {
     font-family: productBold;
-    src: url(../fonts/Product\ Sans\ Regular.ttf);
-  }
+    src: url(../fonts/ProductBold.ttf);
+}
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +20,7 @@ body {
 }
 
 header {
-    font-family: productBold;
+    font-family: ProductBold;
     position: fixed;
     top: 0;
     left: 0;
@@ -34,16 +35,25 @@ header {
 }
 
 header .logo {
-    margin-left: 50%;
+    position: relative;
+    height: 75px;
+    margin-left: -5%;
+}
+
+header .logo img {
+    position: relative;
+    height: 100%;
 }
 
 header .navbar ul {
     list-style: none;
+    background: #fff;
 }
 
 header .navbar ul li {
     position: relative;
     float: left;
+    background: #fff;
 }
 
 header .navbar ul li a {
@@ -51,12 +61,14 @@ header .navbar ul li a {
     padding: 20px;
     color: #333;
     display: block;
+    background: #fff;
+    color: #3C4048;
 }
  
 header .navbar ul li a:after {
     content: "";
     position: absolute;
-    background-color: blue;
+    background-color: #00ABB3;
     height: 3px;
     width: 0%;
     left: 0;

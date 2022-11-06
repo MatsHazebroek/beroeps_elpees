@@ -41,6 +41,7 @@
                         <a href="./assets/php/create_item.php" class="addCard">
                             <h1>Voeg toe</h1>
                         </a>
+                    
                     <?php 
                     while($item = mysqli_fetch_assoc($result)) {
                         ?>
