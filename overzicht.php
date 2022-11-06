@@ -105,7 +105,7 @@
 
     } else {
             // Hier moet het per user gaan kijken
-            $  = "SELECT * FROM `VerzamelDB`";
+            $query  = "SELECT * FROM `VerzamelDB`";
 
             $result = mysqli_query($db, $query);
             
