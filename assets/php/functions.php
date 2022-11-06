@@ -215,8 +215,24 @@ function editItem() {
     $omschrijving = e($_POST['omschrijving']);
     $id = e($_POST['id']);
 
+	$output_dir = "upload/";
+	$RandomNum   = time();
+	$ImageName      = str_replace(' ','-',strtolower($_FILES['image']['name'][0]));
+	$ImageType      = $_FILES['image']['type'][0];
+
+	if (!file_exists($output_dir)) {
+		@mkdir($output_dir, 0777);
+	}
+
+	$ImageExt = substr($ImageName, strrpos($ImageName, '.'));
+	$ImageExt       = str_replace('.','',$ImageExt);
+	$NewImageName = $RandomNum.'.'.$ImageExt;
+    $ret[$NewImageName]= $output_dir.$NewImageName;
+
+	move_uploaded_file($_FILES["image"]["tmp_name"], $output_dir."/".$NewImageName);
+
     $query = "UPDATE `VerzamelDB` SET `NaamItem` = '${titel}', `Artiest` = '${artiest}', `Genre` = '{$genre}', `ReleaseDatum` = '{$release}', 
-    `Formaat` = '{$formaat}', `Omschrijving` = '{$omschrijving}' WHERE `Id` = '{$id}'";
+    `Formaat` = '{$formaat}', `Omschrijving` = '{$omschrijving}', `ItemImage` = '{$NewImageName}' WHERE `Id` = '{$id}'";
     
 
     $result = mysqli_query($db, $query);
