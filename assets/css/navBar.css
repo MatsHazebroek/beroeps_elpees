@@ -34,16 +34,25 @@ header {
 }
 
 header .logo {
-    margin-left: 50%;
+    position: relative;
+    height: 75px;
+    margin-left: -5%;
+}
+
+header .logo img {
+    position: relative;
+    height: 100%;
 }
 
 header .navbar ul {
     list-style: none;
+    background: #fff;
 }
 
 header .navbar ul li {
     position: relative;
     float: left;
+    background: #fff;
 }
 
 header .navbar ul li a {
@@ -51,12 +60,14 @@ header .navbar ul li a {
     padding: 20px;
     color: #333;
     display: block;
+    background: #fff;
+    color: #3C4048;
 }
  
 header .navbar ul li a:after {
     content: "";
     position: absolute;
-    background-color: blue;
+    background-color: #00ABB3;
     height: 3px;
     width: 0%;
     left: 0;

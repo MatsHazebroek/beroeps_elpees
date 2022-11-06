@@ -14,6 +14,7 @@
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" href="assets/css/navBar.css">
+                    <link rel="stylesheet" href="./assets/css/style.css">
                     <title>Werkt niet</title>
                 </head>
                 <body>
@@ -25,8 +26,13 @@
                             <li><a href="assets/php/register.php">Sign up</a></li>
                         </ul>
                         </nav>
-
                     </header>
+                    <div class="parent">
+                        <div class="div1"> 
+                            <h1></h1>
+                        </div>
+                        <div class="div2"> </div>
+                    </div>
                 </body>
                 </html>
         <?php 
@@ -43,7 +49,6 @@
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" href="assets/css/navBar.css">
-
                     <title>Werkt wel admin</title>
                 </head>
                 <body>
@@ -90,6 +95,7 @@
                         </nav>
 
                     </header>
+                    <a href="./assets/php/create_item.php"></a>
                 </body>
                 </html>
 
@@ -98,7 +104,6 @@
         }
         ?>
         
-
         <?php
         
     } 
