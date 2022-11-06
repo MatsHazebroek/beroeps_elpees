@@ -1,10 +1,10 @@
 @font-face {
   font-family: product;
-  src: url(../fonts/ProductRegular.ttf);
+  src: url(../fonts/Product\ Sans\ Regular.ttf);
 }
 @font-face {
   font-family: productBold;
-  src: url(../fonts/ProductBold.ttf);
+  src: url(../fonts/Product\ Sans\ Regular.ttf);
 }
 :root {
     --surface-color: #fff;
@@ -17,37 +17,18 @@
 
   body {
     font-family: product;
-    background-color: #EAEAEA;
+    background-color: #fef8f8;
   }
 
   .cards {
     position: relative;
     top: 2rem;
     display: grid;
-    grid-template-columns: repeat(minmax(20vw, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(20vw, 1fr));
     gap: 2rem;
     margin: 4rem 5vw;
     padding: 0;
     list-style-type: none;
-  }
-
-  .addCard{
-    position: relative;
-    display: block;
-    height: 100%;  
-    background-color: #00ABB3;
-    border-radius: calc(var(--curve) * 1px);
-  }
-
-  .addCard h1{
-    position: relative;
-    margin-top: 50%;
-    margin-left: 50%;
-    transform: translate(-50%, -50%);
-    color: #3C4048;
-    font-family: ProductBold;
-    font-size: 50px;
-    text-align: center;
   }
 
   .card {
@@ -120,26 +101,29 @@
   .card__title {
     font-size: 1em;
     margin: 0 0 .3em;
-    color: #3C4048;
-    font-family: ProductBold;
+    color: #6A515E;
   }
 
+  .card__tagline {
+    display: block;
+    margin: 1em 0;
+    font-family: "MockFlowFont";  
+    font-size: .8em; 
+    color: #D7BDCA;  
+  }
 
-  span {
-    color: #00ABB3;
-    left: 5px;
-    font-family: ProductBold;
+  .card__status {
+    font-size: .8em;
+    color: #D7BDCA;
   }
 
   .card__description {
     padding: 0 2em 2em;
     margin: 0;
-    color: #3C4048;
+    color: #D7BDCA;
     font-family: "MockFlowFont";   
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 3;
     overflow: hidden;
-    font-family: Product;
-
   }
