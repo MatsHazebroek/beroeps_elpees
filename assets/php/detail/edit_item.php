@@ -63,6 +63,8 @@
                             }
                             ?>
                         </select><br><br>
+                        <label>Cover foto</label>
+                        <input id="file" type="file" name="image"><br><br>
                         <label>Beschrijving</label><br>
                         <textarea name="omschrijving" cols="30" rows="10" ><?php echo $item['Omschrijving']?></textarea>
                         <button type="submit" name="edit_item">Edit</button>
