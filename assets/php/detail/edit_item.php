@@ -25,7 +25,7 @@
 
                 ?>
                 <div>
-                    <form method="POST" action="edit_item.php">
+                    <form method="POST" action="edit_item.php" enctype="multipart/form-data">
                         <input type="hidden" name="id" value="<?php echo $item['Id'] ?>">
                         <label>Titel</label><br>
                         <input type="text" name="titel" value="<?php echo $item['NaamItem']?>" required><br>
