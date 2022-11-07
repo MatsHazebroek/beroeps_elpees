@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 
 include('functions.php');
 
-if(!isLoggedIn()) {
-    header('location:login.php');
+if(!isLoggedIn() && !isAdmin()) {
+    header('location:../../index.php');
     exit;
 }
 ?>
