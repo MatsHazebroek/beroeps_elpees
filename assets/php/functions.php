@@ -146,14 +146,12 @@ function login(){
 
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
-				// header('location:../../index.php');	
 				header('location:../../overzicht.php');		  
 
 			}else{
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 
-				// header('location:../../index.php');
 				header('location:../../overzicht.php');		  
 
 			}
@@ -217,12 +215,9 @@ function editItem() {
     $omschrijving = e($_POST['omschrijving']);
     $id = e($_POST['id']);
 
-    
     $output_dir = "./../upload";
     $NewImageName = time().".jpg";
     
-	// print_r($_FILES["image"]);
-
     if (!file_exists($output_dir)) {
 		@mkdir($output_dir, 0777);
 	}

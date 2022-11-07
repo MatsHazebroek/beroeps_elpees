@@ -3,7 +3,6 @@
 
     if (!isAdmin()) {
 
-            // Hier moet het per user gaan kijken
             $query = "SELECT * FROM `VerzamelDB` WHERE `user` = " . $_SESSION['user']['id'];
 
             $result = mysqli_query($db, $query);
@@ -17,7 +16,7 @@
                     <meta charset="UTF-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>overzicht</title>
+                    <title>Beroeps Overzicht</title>
                     <link rel="stylesheet" href="./assets/css/navBar.css">
                     <link rel="stylesheet" href="./assets/css/overzicht.css">
                 </head>
@@ -28,7 +27,6 @@
                     
                         <nav class="navbar">
                         <ul>
-                            <!-- <li><a href="./index.php">Home</a></li> -->
                             <li><a href="#">Overzicht</a></li>
                             <li><a href="./assets/php/logout.php">Log uit</a></li>
                         </ul>
@@ -77,7 +75,7 @@
                         <meta charset="UTF-8">
                         <meta http-equiv="X-UA-Compatible" content="IE=edge">
                         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                        <title>overzicht admin</title>
+                        <title>Beroeps Overzicht</title>
                         <link rel="stylesheet" href="./assets/css/navBar.css">
                         <link rel="stylesheet" href="./assets/css/overzicht.css">
                     </head>
@@ -88,9 +86,7 @@
                         
                             <nav class="navbar">
                             <ul>
-                                <!-- <li><a href="./index.php">Home</a></li> -->
                                 <li><a href="#">Overzicht</a></li>
-                                <!-- <li><a href="./assets/php/home.php">Admin</a></li> -->
                                 <li><a href="./assets/php/logout.php">Log uit</a></li>
                             </ul>
                             </nav>
@@ -105,7 +101,6 @@
 
 
     } else {
-            // Hier moet het per user gaan kijken
             $query  = "SELECT * FROM `VerzamelDB`";
 
             $result = mysqli_query($db, $query);
@@ -119,7 +114,7 @@
                     <meta charset="UTF-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>overzicht admin</title>
+                    <title>Beroeps Overzicht - Admin</title>
                     <link rel="stylesheet" href="./assets/css/navBar.css">
                     <link rel="stylesheet" href="./assets/css/overzicht.css">
                 </head>
@@ -130,7 +125,6 @@
                     
                         <nav class="navbar">
                         <ul>
-                            <!-- <li><a href="./index.php">Home</a></li> -->
                             <li><a href="#">Overzicht</a></li>
                             <li><a href="./assets/php/home.php">Admin</a></li>
                             <li><a href="./assets/php/logout.php">Log uit</a></li>
@@ -176,7 +170,7 @@
                     <meta charset="UTF-8">
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                    <title>overzicht admin</title>
+                    <title>Beroeps Overzicht - Admin</title>
                     <link rel="stylesheet" href="./assets/css/navBar.css">
                     <link rel="stylesheet" href="./assets/css/overzicht.css">
                 </head>
