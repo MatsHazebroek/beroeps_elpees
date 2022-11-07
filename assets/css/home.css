@@ -1,0 +1,44 @@
+body{
+    background-color: #EAEAEA;
+}
+
+.table{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    height: 70%;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    overflow-y:scroll;
+    background-color: white;
+}
+
+table{
+    border-collapse: separate; 
+    border-spacing: 4em;
+    font-size: 20px;
+    margin: auto;
+    border: none;
+}
+
+#edit{
+    background-color: rgb(68, 143, 188);
+    color: white;
+    padding: 8px;
+}
+
+#delete{
+    background-color: rgb(228, 72, 59);
+    color: white;
+    padding: 8px;
+}
+
+
+#fixed{
+    top: 0;
+    z-index: 2;
+    position: sticky;
+    background-color: white;
+    height: 30px;
+}
+
