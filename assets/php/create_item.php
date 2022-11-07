@@ -5,8 +5,8 @@ error_reporting(E_ALL);
 
 include('functions.php');
 
-if(!isLoggedIn()) {
-    header('location:login.php');
+if(!isLoggedIn() && !isAdmin()) {
+    header('location:../../index.html');
     exit;
 }
 ?>
@@ -17,7 +17,7 @@ if(!isLoggedIn()) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Item</title>
+    <title>Beroeps Create Item</title>
     <link rel="stylesheet" href="../css/create_item.css">
     <link rel="stylesheet" href="../css/navBar.css">
 </head>
@@ -27,7 +27,6 @@ if(!isLoggedIn()) {
     
         <nav class="navbar">
         <ul>
-            <!-- <li><a href="../../index.php">Home</a></li> -->
             <li><a href="../../overzicht.php">Overzicht</a></li>
             <li><a href="./assets/php/logout.php">Log uit</a></li>
         </ul>

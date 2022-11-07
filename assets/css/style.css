@@ -19,11 +19,21 @@ html, body{
   grid-template-rows: 1fr;
   grid-column-gap: 50px;
   grid-row-gap: 50px;
-
+  top: 100px;
 }
 
 .div1 {
   grid-area: 1 / 1 / 2 / 2;
+  text-align: center;
+}
+
+.div1 h1{
+    font-family: productBold;
+}
+
+
+.div1 p{
+    font-family: product;
 }
 
 

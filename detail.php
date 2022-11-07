@@ -5,6 +5,11 @@ error_reporting(E_ALL);
 
 include('./assets/php/functions.php');
 
+if(!isLoggedIn() && !isAdmin()) {
+    header('location:./index.html');
+    exit;
+}
+
 $id = $_GET['id'];
 
 $query = "SELECT * FROM `VerzamelDB` WHERE Id = " . $id;
