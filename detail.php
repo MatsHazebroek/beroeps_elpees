@@ -27,7 +27,7 @@ if (mysqli_num_rows($result)) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assets/css/detail.css">
+        <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/navBar.css">
         <title>Detail Pagina</title>
     </head>
@@ -43,19 +43,9 @@ if (mysqli_num_rows($result)) {
                 </ul>
             </nav>
         </header>
-        <section class="main">
-            <div class="main-left">
-                <div class="slideshow-container">
-
-                    <div class="mySlides">
-                        <img src="./assets/php/upload/<?php echo $item['ItemImage']?>"style="width:100%">
-                    </div>
-                </div>
-                <br>
-            </div>
-
-            <div class="main-right">
-                <div class="main-right-info">
+        <section class="parent">
+            <div class="div1">
+                <div class="container"></div>
                     <h1 id="title"><?php echo $item['NaamItem'] ?></h1>
                     <span id="info">
                         <p id="Artiest">Artiest: <?php echo $item['Artiest'] ?></p>
@@ -75,7 +65,11 @@ if (mysqli_num_rows($result)) {
                         <button id="edit"><a href="./assets/php/detail/edit_item.php?id=<?php echo $item['Id']?>">Bewerk</a></button>
                         <button id="delete"><a href="./assets/php/verwijder.php?id=<?php echo $item['Id']?>">Verwijder</a></button>
                     </div>
-                </div>
+            </div>
+</div>
+
+            <div class="div2">
+                <img src="./assets/php/upload/<?php echo $item['ItemImage']?>"> 
             </div>
         </section>
     </body>

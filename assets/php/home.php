@@ -15,8 +15,13 @@ if (mysqli_num_rows($result) > 0) {
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/home.css">
         <link rel="stylesheet" href="../css/navBar.css">
+        <style>
+            table, th, td {
+                margin-top: 500px;
+                border: 1px solid;
+            }
+        </style>
         <title>Admin page</title>
     </head>
     <body>
@@ -33,15 +38,15 @@ if (mysqli_num_rows($result) > 0) {
             </nav>
         </header>
 
-    <div class="table">
+
         <table>
-            <tr id="fixed">
+            <tr>
                 <th>ID</th>
                 <th>Username</th>
                 <th>E-mail</th>
                 <th>User Type</th>
-                <th></th>
-                <th></th>
+                <th>Edit</th>
+                <th>Delete</th>
             </tr>
             <?php 
             while($item = mysqli_fetch_assoc($result)) {
@@ -51,14 +56,14 @@ if (mysqli_num_rows($result) > 0) {
                         <th><?php echo $item['username']; ?></th>
                         <th><?php echo $item['email']; ?></th>
                         <th><?php echo $item['user_type']; ?></th>
-                        <th><a id="edit" href="./detail/edit_user.php?id=<?php echo $item['id'];?>">Verander</a></th>
-                        <th><a id="delete" href="./delete_user.php?id=<?php echo $item['id']; ?>">Verwijder</a></th>
+                        <th><a href="./detail/edit_user.php?id=<?php echo $item['id'];?>">Verander</a></th>
+                        <th><a href="./delete_user.php?id=<?php echo $item['id']; ?>">Verwijder</a></th>
                     </tr>
                 <?php
             }
             ?>
         </table>
-    </div>    
+        
     </body>
     </html>
     <?php 

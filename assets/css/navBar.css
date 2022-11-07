@@ -11,12 +11,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-transform: capitalize;
     text-decoration: none;
 }
 
 body {
     min-height: 100vh;
+    background-color: #EAEAEA;
 }
 
 header {

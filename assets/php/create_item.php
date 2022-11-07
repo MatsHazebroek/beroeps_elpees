@@ -28,7 +28,7 @@ if(!isLoggedIn() && !isAdmin()) {
         <nav class="navbar">
         <ul>
             <li><a href="../../overzicht.php">Overzicht</a></li>
-            <li><a href="./assets/php/logout.php">Log uit</a></li>
+            <li><a href="./logout.php">Log uit</a></li>
         </ul>
         </nav>
     

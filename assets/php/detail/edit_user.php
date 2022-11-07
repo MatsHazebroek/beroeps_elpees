@@ -4,7 +4,6 @@
             <meta charset="UTF-8">
             <meta http-equiv="X-UA-Compatible" content="IE=edge">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <link rel="stylesheet" href="../../css/edit_user.css">
             <title>Beroeps Edit User</title>
         </head>
         <body>
@@ -25,12 +24,13 @@
                 $item = mysqli_fetch_assoc($result);
 
                 ?>
-                <div class="main">
-                    <div class="sub">
+                <div>
                     <form method="post" action="edit_item.php">
-                        <input class="input" type="hidden" name="id" value="<?php echo $item['id'] ?>">
-                        <input class="input" class="input pass" type="text" name="username" placeholder="Username" value="<?php echo $item['username'] ?>"><br><br>
-                        <input class="input" class="input pass" type="email" name="email" placeholder="E-mail" value="<?php echo $item['email'] ?>"><br><br>
+                        <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
+                        <label>Username:</label>
+                        <input class="input pass" type="text" name="username" value="<?php echo $item['username'] ?>"><br>
+                        <label>E-mail:</label>
+                        <input class="input pass" type="email" name="email" value="<?php echo $item['email'] ?>"><br>
 
                         <label>User type</label> 
 
@@ -52,12 +52,11 @@
                             }
                             ?>
                         </select>
-                        <br><br>
+                        <br>
 
                         <input type="submit" class="inputButton" name="edit_user">
                     </form>
                 </div>
-            </div>
             </body>
         </html>
     <?php 

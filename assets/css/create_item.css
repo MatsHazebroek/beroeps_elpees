@@ -12,9 +12,11 @@
     left: 0;
     top: 0;
     padding: 0;
-    background-color: #EAEAEA;
 }
 
+body{
+    background-color: #EAEAEA;
+}
 .center {
     position: absolute;
     height: 60vh;
