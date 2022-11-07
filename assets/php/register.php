@@ -28,10 +28,10 @@ if (isset($_GET['logout'])) {
         <div id="logbox">
             <form id="signup" method="post" action="register.php">
                 <h1>Maak een account</h1>
-				<input class="input pass" name="username" type="text" placeholder="Username" pattern="^[\w]{3,16}$" autofocus="autofocus" required="required"/>
-				<input class="input pass" name="email" type="email" placeholder="Email adres" pattern="[A-Za-z0-0._+-]+@[A-Za-z0-9 -]+\.[a-z]{2,}" required />
-				<input class="input pass" name="password_1" type="password" placeholder="Fill an password" required="required" />
-				<input class="input pass" name="password_2" type="password" placeholder="Repeat password" required="required" />
+				<input class="input pass" name="username" type="text" placeholder="Username" autofocus="autofocus" required/>
+				<input class="input pass" name="email" type="email" placeholder="Email adres" required />
+				<input class="input pass" name="password_1" type="password" placeholder="Fill an password" required />
+				<input class="input pass" name="password_2" type="password" placeholder="Repeat password" required />
 				<input class="inputButton" type="submit" value="Sign me up!" name="register_btn" />
 				<p>Al geregistreerd <a href="login.php">Sign in</a></p>
             </form>
