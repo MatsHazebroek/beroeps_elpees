@@ -15,7 +15,7 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" href="assets/css/navBar.css">
                     <link rel="stylesheet" href="./assets/css/style.css">
-                    <title>Werkt niet</title>
+                    <title>Beroeps | Verzamelaar</title>
                 </head>
                 <body>
                     <header>
@@ -55,7 +55,7 @@
                     <meta http-equiv="X-UA-Compatible" content="IE=edge">
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" href="assets/css/navBar.css">
-                    <title>Werkt wel admin</title>
+                    <title>Beroeps | Verzamelaar - Admin</title>
                 </head>
                 <body>
                      <header>
@@ -87,7 +87,7 @@
                     <meta name="viewport" content="width=device-width, initial-scale=1.0">
                     <link rel="stylesheet" href="assets/css/navBar.css">
 
-                    <title>Werkt wel</title>
+                    <title>Beroeps | Verzamelaar</title>
                 </head>
                 <body>
                      <header>
@@ -95,6 +95,7 @@
 
                         <nav class="navbar">
                         <ul>
+                            <li><a href="./index.php">Home</a></li>
                             <li><a href="./overzicht.php">Overzicht</a></li>
                             <li><a href="assets/php/logout.php">Log uit</a></li>
                         </ul>
