@@ -45,6 +45,7 @@ if (mysqli_num_rows($result) > 0) {
                 <th>Username</th>
                 <th>E-mail</th>
                 <th>User Type</th>
+                <th>Edit</th>
             </tr>
             <?php 
             while($item = mysqli_fetch_assoc($result)) {
@@ -54,6 +55,7 @@ if (mysqli_num_rows($result) > 0) {
                         <th><?php echo $item['username']; ?></th>
                         <th><?php echo $item['email']; ?></th>
                         <th><?php echo $item['user_type']; ?></th>
+                        <th><a href="/assets/php/detail/edit_item.php?id=<?php echo $item['id'];?>"></a></th>
                     </tr>
                 <?php
             }
