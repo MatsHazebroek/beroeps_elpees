@@ -217,19 +217,15 @@ function editItem() {
     $omschrijving = e($_POST['omschrijving']);
     $id = e($_POST['id']);
 
-    $output_dir = "upload/";
-	$RandomNum   = time();
-	$ImageName      = str_replace(' ','-',strtolower($_FILES['image']['name'][0]));
-	$ImageType      = $_FILES['image']['type'][0];
+    
+    $output_dir = "./../upload";
+    $NewImageName = time().".jpg";
+    
+	// print_r($_FILES["image"]);
 
-	if (!file_exists($output_dir)) {
+    if (!file_exists($output_dir)) {
 		@mkdir($output_dir, 0777);
 	}
-
-	$ImageExt = substr($ImageName, strrpos($ImageName, '.'));
-	$ImageExt       = str_replace('.','',$ImageExt);
-	$NewImageName = $RandomNum.'.'.$ImageExt;
-    $ret[$NewImageName]= $output_dir.$NewImageName;
 
 	move_uploaded_file($_FILES["image"]["tmp_name"], $output_dir."/".$NewImageName);
 
