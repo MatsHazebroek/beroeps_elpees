@@ -37,12 +37,34 @@
                         <input type="date" name="release" value="<?php echo $item['ReleaseDatum']?>" required><br>
                         <label>Formaat</label><br>
                         <select name="formaat">
-                            <option>18 cm(7 inch)</option>
-                            <option> 25 cm(10 inch)</option>
-                            <option> 30 cm(12 inch)</option>
+                            <?php 
+                            switch($item["Formaat"]) {
+                                case "18 cm(7 inch)":
+                                    ?>
+                                    <option selected>18 cm(7 inch)</option>
+                                    <option>25 cm(10 inch)</option>
+                                    <option>30 cm(12 inch)</option>
+                                    <?php
+                                    break;
+                                case "25 cm(10 inch)":
+                                    ?>
+                                    <option>18 cm(7 inch)</option>
+                                    <option selected>25 cm(10 inch)</option>
+                                    <option>30 cm(12 inch)</option>
+                                    <?php
+                                    break;
+                                case "30 cm(12 inch)":
+                                    ?>
+                                    <option>18 cm(7 inch)</option>
+                                    <option>25 cm(10 inch)</option>
+                                    <option selected>30 cm(12 inch)</option>
+                                    <?php
+                                    break;
+                            }
+                            ?>
                         </select><br><br>
                         <label>Beschrijving</label><br>
-                        <textarea name="omschrijving" cols="30" rows="10" ></textarea>
+                        <textarea name="omschrijving" cols="30" rows="10" ><?php echo $item['Omschrijving']?></textarea>
                         <button type="submit" name="edit_item">Edit</button>
                     </form>
                 </div>

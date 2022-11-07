@@ -44,7 +44,7 @@ body{
 
 .mySlides {display: none}
 img {
-    vertical-align: middle;
+    /* vertical-align: middle; */
     display: block;
     max-width: 700px;
     max-height: 700px;

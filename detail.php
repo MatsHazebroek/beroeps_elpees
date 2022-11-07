@@ -47,11 +47,6 @@ if (mysqli_num_rows($result)) {
                     </div>
                 </div>
                 <br>
-                
-                <div class="buttons">
-                    <button id="edit"><a href="./assets/php/detail/edit_item.php?id=<?php echo $item['Id']?>">Bewerk</a></button>
-                    <button id="delete"><a href="./assets/php/verwijder.php?id=<?php echo $item['Id']?>">Verwijder</a></button>
-                </div>
             </div>
 
             <div class="main-right">
@@ -67,6 +62,14 @@ if (mysqli_num_rows($result)) {
                     <p id="omschrijving">
                         <?php echo $item['Omschrijving'] ?>
                     </p>
+
+                    <br>     
+                    <br>     
+                    
+                    <div class="buttons">
+                        <button id="edit"><a href="./assets/php/detail/edit_item.php?id=<?php echo $item['Id']?>">Bewerk</a></button>
+                        <button id="delete"><a href="./assets/php/verwijder.php?id=<?php echo $item['Id']?>">Verwijder</a></button>
+                    </div>
                 </div>
             </div>
         </section>

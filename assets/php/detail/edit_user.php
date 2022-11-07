@@ -33,11 +33,26 @@
                         <input class="input pass" type="email" name="email" value="<?php echo $item['email'] ?>"><br>
 
                         <label>User type</label> 
+
                         <select name="user_type" id="user_type">
-                            <option value=""></option>
-                            <option value="admin">Admin</option>
-                            <option value="user">User</option>
-                        </select><br>
+                            <?php 
+                            switch($item["user_type"]) {
+                                case "admin":
+                                    ?>
+                                    <option value="admin" selected>Admin</option>
+                                    <option value="user">User</option>
+                                    <?php
+                                    break;
+                                case "user":
+                                    ?>
+                                    <option value="admin">Admin</option>
+                                    <option value="user" selected>User</option>
+                                    <?php
+                                    break;
+                            }
+                            ?>
+                        </select>
+                        <br>
 
                         <input type="submit" class="inputButton" name="edit_user">
                     </form>
