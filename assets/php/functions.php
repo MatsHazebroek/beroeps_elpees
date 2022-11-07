@@ -194,7 +194,7 @@ function createItem() {
 	$result = mysqli_query($db, $query); 
 
 	if ($result) {
-		echo "het item is toegevoegd<br>";
+		header('location:../../overzicht.php');
 	} else {
 		echo "FOUT bij toevoegen<br>";
 		echo $query . "<br>";

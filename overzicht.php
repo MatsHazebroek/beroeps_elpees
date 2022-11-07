@@ -24,7 +24,7 @@
                 <body>
 
                     <header>
-                    <a href="#" class="logo"><img src="assets/img/lp_logo.png" alt=""></a>
+                    <a href="#" class="logo"><img src="./assets/img/lp_logo.png" alt=""></a>
                     
                         <nav class="navbar">
                         <ul>
@@ -84,7 +84,7 @@
                     <body>
     
                         <header>
-                        <a href="#" class="logo"><img src="/assets/img/lp_logo.png" alt=""></a>
+                        <a href="#" class="logo"><img src="./assets/img/lp_logo.png" alt=""></a>
                         
                             <nav class="navbar">
                             <ul>
@@ -126,7 +126,7 @@
                 <body>
 
                     <header>
-                    <a href="#" class="logo"><img src="/assets/img/lp_logo.png" alt=""></a>
+                    <a href="#" class="logo"><img src="./assets/img/lp_logo.png" alt=""></a>
                     
                         <nav class="navbar">
                         <ul>
@@ -184,7 +184,7 @@
                 <body>
 
                     <header>
-                    <a href="#" class="logo"><img src="/assets/img/lp_logo.png" alt=""></a>
+                    <a href="#" class="logo"><img src="./assets/img/lp_logo.png" alt=""></a>
                     
                         <nav class="navbar">
                         <ul>
