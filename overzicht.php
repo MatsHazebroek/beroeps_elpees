@@ -28,7 +28,7 @@
                     
                         <nav class="navbar">
                         <ul>
-                            <li><a href="./index.php">Home</a></li>
+                            <!-- <li><a href="./index.php">Home</a></li> -->
                             <li><a href="#">Overzicht</a></li>
                             <li><a href="./assets/php/logout.php">Log uit</a></li>
                         </ul>
@@ -88,9 +88,9 @@
                         
                             <nav class="navbar">
                             <ul>
-                                <li><a href="./index.php">Home</a></li>
+                                <!-- <li><a href="./index.php">Home</a></li> -->
                                 <li><a href="#">Overzicht</a></li>
-                                <li><a href="./assets/php/home.php">Admin</a></li>
+                                <!-- <li><a href="./assets/php/home.php">Admin</a></li> -->
                                 <li><a href="./assets/php/logout.php">Log uit</a></li>
                             </ul>
                             </nav>
@@ -130,7 +130,7 @@
                     
                         <nav class="navbar">
                         <ul>
-                            <li><a href="./index.php">Home</a></li>
+                            <!-- <li><a href="./index.php">Home</a></li> -->
                             <li><a href="#">Overzicht</a></li>
                             <li><a href="./assets/php/home.php">Admin</a></li>
                             <li><a href="./assets/php/logout.php">Log uit</a></li>
@@ -145,7 +145,7 @@
                     while($item = mysqli_fetch_assoc($result)) {
                         ?>
                         <a href="detail.php?id=<?php echo $item['Id']?>" class="card">
-                            <img src="assets/php/upload/<?php echo $item['ItemImage']?>" class="card__image" alt="" />
+                            <img src="./assets/php/upload/<?php echo $item['ItemImage']?>" class="card__image" alt="" />
                             <div class="card__overlay">
                                 <div class="card__header">
                                     <svg class="card__arc" xmlns="http://www.w3.org/2000/svg%22%3E"><path/></svg>

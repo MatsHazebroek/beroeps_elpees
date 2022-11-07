@@ -30,7 +30,7 @@ if (mysqli_num_rows($result) > 0) {
 
             <nav class="navbar">
             <ul>
-                <li><a href="../../index.php">Home</a></li>
+                <!-- <li><a href="../../index.php">Home</a></li> -->
                 <li><a href="../../overzicht.php">Overzicht</a></li>
                 <li><a href="#">Admin</a></li>
                 <li><a href="./logout.php">Log uit</a></li>
@@ -46,6 +46,7 @@ if (mysqli_num_rows($result) > 0) {
                 <th>E-mail</th>
                 <th>User Type</th>
                 <th>Edit</th>
+                <th>Delete</th>
             </tr>
             <?php 
             while($item = mysqli_fetch_assoc($result)) {
@@ -55,7 +56,8 @@ if (mysqli_num_rows($result) > 0) {
                         <th><?php echo $item['username']; ?></th>
                         <th><?php echo $item['email']; ?></th>
                         <th><?php echo $item['user_type']; ?></th>
-                        <th><a href="/assets/php/detail/edit_item.php?id=<?php echo $item['id'];?>"></a></th>
+                        <th><a href="./detail/edit_user.php?id=<?php echo $item['id'];?>">Verander</a></th>
+                        <th><a href="./delete_user.php?id=<?php echo $item['id']; ?>">Verwijder</a></th>
                     </tr>
                 <?php
             }

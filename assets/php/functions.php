@@ -26,8 +26,8 @@ if (isset($_POST['edit_item'])) {
     editItem();
 }
 
-if (isset($_POST['delete'])) {
-    deleteItem();
+if (isset($_POST['edit_user'])) {
+    editUser();
 }
 
 function getUserById($id){
@@ -146,13 +146,15 @@ function login(){
 
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
-				header('location:../../index.php');		  
+				// header('location:../../index.php');	
+				header('location:../../overzicht.php');		  
+
 			}else{
 				$_SESSION['user'] = $logged_in_user;
 				$_SESSION['success']  = "You are now logged in";
 
 				// header('location:../../index.php');
-				header('location:../../index.php');		  
+				header('location:../../overzicht.php');		  
 
 			}
 		}else {
@@ -215,7 +217,7 @@ function editItem() {
     $omschrijving = e($_POST['omschrijving']);
     $id = e($_POST['id']);
 
-    $query = "UPDATE `VerzamelDB` SET `NaamItem` = '${titel}', `Artiest` = '${artiest}', `Genre` = '{$genre}', `ReleaseDatum` = '{$release}', 
+    $query = "UPDATE `VerzamelDB` SET `NaamItem` = '{$titel}', `Artiest` = '{$artiest}', `Genre` = '{$genre}', `ReleaseDatum` = '{$release}', 
     `Formaat` = '{$formaat}', `Omschrijving` = '{$omschrijving}' WHERE `Id` = '{$id}'";
     
 
@@ -229,19 +231,25 @@ function editItem() {
     }
 }
 
-function deleteItem() {
-    global $db, $id;
+function editUser() {
 
+    global $db, $username, $email, $id, $user_type;
+
+    $username = e($_POST['username']);
+    $email = e($_POST['email']);
     $id = e($_POST['id']);
+    $user_type = e($_POST['user_type']);
 
-    $query = "DELETE FROM `VerzamelDB` WHERE Id = " . $id;
+
+    $query = "UPDATE `multi_login` SET `username` = '{$username}', `email` = '{$email}', `user_type` = '{$user_type}' WHERE id = '{$id}'";
 
     $result = mysqli_query($db, $query);
 
     if ($result) {
-        header('location:../../overzicht.php');
+        header('location:../home.php');
     } else {
         echo $query;
         mysqli_error($db);
     }
+
 }

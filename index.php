@@ -63,7 +63,7 @@
 
                         <nav class="navbar">
                         <ul>
-                            <li><a href="./index.php">Home</a></li>
+                            <!-- <li><a href="./index.php">Home</a></li> -->
                             <li><a href="./overzicht.php">Overzicht</a></li>
                             <li><a href="./assets/php/home.php">Admin</a></li>
                             <li><a href="assets/php/logout.php">Log uit</a></li>

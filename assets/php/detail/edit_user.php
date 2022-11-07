@@ -28,16 +28,16 @@
                     <form method="post" action="edit_item.php">
                         <input type="hidden" name="id" value="<?php echo $item['id'] ?>">
                         <label>Username:</label>
-                        <input class="input pass" type="text" name="username" value="<?php echo $item['username'] ?>">
+                        <input class="input pass" type="text" name="username" value="<?php echo $item['username'] ?>"><br>
                         <label>E-mail:</label>
-                        <input class="input pass" type="email" name="email" value="<?php echo $item['email'] ?>">
+                        <input class="input pass" type="email" name="email" value="<?php echo $item['email'] ?>"><br>
 
                         <label>User type</label> 
                         <select name="user_type" id="user_type">
                             <option value=""></option>
                             <option value="admin">Admin</option>
                             <option value="user">User</option>
-                        </select>
+                        </select><br>
 
                         <input type="submit" class="inputButton" name="edit_user">
                     </form>
