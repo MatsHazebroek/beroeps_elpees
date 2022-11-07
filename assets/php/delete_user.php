@@ -3,9 +3,13 @@ include('./functions.php');
 
 $id = $_GET['id'];
 
-$query = "DELETE FROM `multi_login` WHERE id = " . $id;
+$queryUser = "DELETE * FROM `multi_login` WHERE id = " . $id;
 
-$result = mysqli_query($db, $query);
+$queryItem = "DELETE * FROM `VerzamelDB` WHERE user = " . $id;
+
+mysqli_query($db, $queryUser);
+
+mysqli_query($db, $querItem);
 
 header('location:./home.php')
     

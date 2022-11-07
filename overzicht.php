@@ -2,7 +2,7 @@
     include('./assets/php/functions.php');
 
     if(!isLoggedIn() && !isAdmin()) {
-        header('location:./index.php');
+        header('location:./index.html');
         exit;
     }
 
