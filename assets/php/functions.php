@@ -122,17 +122,6 @@ function login(){
 	
 }
 
-function loginCheck(){
-	global $db;
-	$userId = $_SESSION['user'];
-	$query = "SELECT * FROM multi_login WHERE id = '". $userId. "' ";
-	$results = mysqli_query($db, $query);
-	$rows = mysqli_num_rows($results);
-	if($rows == 0){
-		session_destroy();
-	}
-}
-
 function createItem() {
 
 	global $db, $titel, $artiest, $genre, $release, $formaat, $omschrijving, $ImageType, $ret;
