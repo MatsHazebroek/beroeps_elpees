@@ -9,7 +9,7 @@ $queryItem = "DELETE * FROM `VerzamelDB` WHERE user = " . $id;
 
 $result = mysqli_query($db, $queryUser);
 
-$result = mysqli_query($db, $querItem);
+$result = mysqli_query($db, $queryItem);
 
 header('location:./home.php')
     
