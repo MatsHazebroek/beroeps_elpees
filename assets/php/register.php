@@ -31,7 +31,6 @@ if (isset($_GET['logout'])) {
 				<input class="input pass" name="username" type="text" placeholder="Username" autofocus="autofocus" required/>
 				<input class="input pass" name="email" type="email" placeholder="Email adres" required />
 				<input class="input pass" name="password_1" type="password" placeholder="Fill an password" required />
-				<input class="input pass" name="password_2" type="password" placeholder="Repeat password" required />
 				<input class="inputButton" type="submit" value="Sign me up!" name="register_btn" />
 				<p>Al geregistreerd <a href="login.php">Sign in</a></p>
             </form>

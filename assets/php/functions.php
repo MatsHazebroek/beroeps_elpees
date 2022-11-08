@@ -7,7 +7,6 @@ $db = mysqli_connect('localhost', 'DBgebruiker', 'DBgebruiker', 'BeroepsDB');
 
 $username = "";
 $email    = "";
-$logged_in_user_id = mysqli_insert_id($db);
 $errors   = array(); 
 
 if (isset($_POST['login_btn'])) {
@@ -44,18 +43,6 @@ function e($val){
 	return mysqli_real_escape_string($db, trim($val));
 }
 
-function display_error() {
-	global $errors;
-
-	if (count($errors) > 0){
-		echo '<div class="error">';
-			foreach ($errors as $error){
-				echo $error .'<br>';
-			}
-		echo '</div>';
-	}
-}	
-
 function isLoggedIn()
 {
     // session_start();
@@ -81,43 +68,27 @@ function register(){
 	$username    =  e($_POST['username']);
 	$email       =  e($_POST['email']);
 	$password_1  =  e($_POST['password_1']);
-	$password_2  =  e($_POST['password_2']);
 
-	if (empty($username)) { 
-		display_error($errors, "Username is required"); 
-	}
-	if (empty($email)) { 
-		display_error($errors, "Email is required"); 
-	}
-	if (empty($password_1)) { 
-		display_error($errors, "Password is required"); 
-	}
-	if ($password_1 != $password_2) {
-		display_error($errors, "The two passwords do not match");
-	}
 
-	if (count($errors) == 0) {
-		$password = md5($password_1);
+    $password = md5($password_1);
 
-		if (isset($_POST['user_type'])) {
-			$user_type = e($_POST['user_type']);
-			$query = "INSERT INTO multi_login (username, email, user_type, password) 
-					  VALUES('$username', '$email', '$user_type', '$password')";
-			mysqli_query($db, $query);
-			$_SESSION['success']  = "New user successfully created!!";
-			header('location:home.php');
-		}else{
-			$query = "INSERT INTO multi_login (username, email, user_type, password) 
-					  VALUES('$username', '$email', 'user', '$password')";
-			mysqli_query($db, $query);
+    if (isset($_POST['user_type'])) {
+        $user_type = e($_POST['user_type']);
+        $query = "INSERT INTO multi_login (username, email, user_type, password) 
+                    VALUES('$username', '$email', '$user_type', '$password')";
+        mysqli_query($db, $query);
+        header('location:home.php');
+    }else{
+        $query = "INSERT INTO multi_login (username, email, user_type, password) 
+                    VALUES('$username', '$email', 'user', '$password')";
+        mysqli_query($db, $query);
 
-			$logged_in_user_id = mysqli_insert_id($db);
+        $logged_in_user_id = mysqli_insert_id($db);
 
-			$_SESSION['user'] = getUserById($logged_in_user_id);
-			$_SESSION['success']  = "You are now logged in";
-            header('location:../../overzicht.php');				
-		}
-	}
+        $_SESSION['user'] = getUserById($logged_in_user_id);
+        header('location:../../overzicht.php');				
+    }
+	
 }
 
 function login(){
@@ -127,38 +98,28 @@ function login(){
 	$password = e($_POST['password']);
     $user = e($_POST['user']);
 
-	if (empty($username)) {
-		display_error($errors, 'Username is required');
-	}
-	if (empty($password)) {
-		display_error($errors, "Password is required");
-	}
+    $password = md5($password);
 
-	if (count($errors) == 0) {
-		$password = md5($password);
+    $query = "SELECT * FROM multi_login WHERE username='$username' AND password='$password' LIMIT 1";
+    $results = mysqli_query($db, $query);
 
-		$query = "SELECT * FROM multi_login WHERE username='$username' AND password='$password' LIMIT 1";
-		$results = mysqli_query($db, $query);
+    if (mysqli_num_rows($results) == 1) {
+        $logged_in_user = mysqli_fetch_assoc($results);
+        if ($logged_in_user['user_type'] == 'admin') {
 
-		if (mysqli_num_rows($results) == 1) {
-			$logged_in_user = mysqli_fetch_assoc($results);
-			if ($logged_in_user['user_type'] == 'admin') {
+            $_SESSION['user'] = $logged_in_user;
+            $_SESSION['success']  = "You are now logged in";
+            header('location:../../overzicht.php');		  
 
-				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
-				header('location:../../overzicht.php');		  
+        }else{
+            $_SESSION['user'] = $logged_in_user;
+            $_SESSION['success']  = "You are now logged in";
 
-			}else{
-				$_SESSION['user'] = $logged_in_user;
-				$_SESSION['success']  = "You are now logged in";
+            header('location:../../overzicht.php');		  
 
-				header('location:../../overzicht.php');		  
-
-			}
-		}else {
-			array_push($errors, "Wrong username/password combination");
-		}
-	}
+        }
+    }
+	
 }
 
 function loginCheck(){
