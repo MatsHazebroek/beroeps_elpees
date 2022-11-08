@@ -76,7 +76,7 @@
                             ?>
                         </select><br><br>
                         <label>Cover foto</label>
-                        <input id="file" type="file" name="image"><br><br>
+                        <input id="file" type="file" name="image" required><br><br>
                         <label>Beschrijving</label><br>
                         <textarea name="omschrijving" cols="30" rows="10" ><?php echo $item['Omschrijving']?></textarea><br>
                         <button type="submit" name="edit_item">Edit</button>

@@ -11,6 +11,7 @@ body{
     width: 28%;
     height: 20%;
     display: flex;
+    text-align: center;
 }
 
 .sub{
