@@ -1,6 +1,12 @@
 <?php 
     include('./assets/php/functions.php');
 
+    ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+    loginCheck();
+
     if(!isLoggedIn() && !isAdmin()) {
         header('location:./index.html');
         exit;
